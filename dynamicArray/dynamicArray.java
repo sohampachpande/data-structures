@@ -47,8 +47,7 @@ public class dynamicArray <T>
 	}
 
 	public T removeElementAtIndex(int index) {
-		System.out.println(index);
-		// if (index >= len || index < 0) throw new IndexOutOfBoundsException();
+		if (index >= len || index < 0) throw new IndexOutOfBoundsException();
 		T removedData = arr[index];
 		for( int i = 0, j = 0; i < len; i++, j++){
 			if (i == index) j--;
@@ -79,9 +78,16 @@ public class dynamicArray <T>
 		else return true;
 	}
 
+	public void printArray(){
+		for(int i = 0; i < len; i++)
+			System.out.println(arr[i]);
+	}
+
 	public static void main(String[] args) {
 
 		dynamicArray try1 = new dynamicArray(1);
+
+		System.out.println("Adding Elements");
 
 		try1.add(5);
 		try1.add(8);
@@ -89,12 +95,16 @@ public class dynamicArray <T>
 
 		System.out.println("Initial Size: " + try1.size());
 
-		System.out.println(try1.get(0));
-		System.out.println(try1.get(1));
-		System.out.println(try1.get(2));
+		System.out.println("First Element:" + try1.get(0));
+
+		System.out.println("Removing One Element");
 
 		try1.removeElement(5);
 
 		System.out.println("Final Size: " + try1.size());
+
+		System.out.println("\nArray: ");
+
+		try1.printArray();
 	}
 }
