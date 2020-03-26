@@ -28,10 +28,12 @@ class Stack <T> {
 		size++;
 	}
 
-	public void pop() {
+	public T pop() {
 		if( isEmpty() ) { throw new RuntimeException("Stack is Empty, nothing to pop!"); }
+		T temp = head.data;
 		head = head.next;
 		size--;
+		return temp;
 	}
 
 	public T peek() {
